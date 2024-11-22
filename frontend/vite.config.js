@@ -12,6 +12,6 @@ export default defineConfig({
     })
   ],
   build: {
-    minify: 'terser', // Use 'esbuild' or 'terser' for minification
+    minify: 'esbuild', // Use 'esbuild' or 'terser' for minification
   },
 })
