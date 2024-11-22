@@ -1,0 +1,30 @@
+.translate-widget {
+    display: flex;
+    margin-left: 10px;
+  }
+
+  .translate-widget .goog-te-gadget {
+    font-family: inherit;
+    font-size: 14px;
+  }
+  
+  .translate-widget .goog-te-gadget-simple {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 4px 8px;
+  }
+  
+  .translate-widget .goog-te-gadget-simple img {
+    display: none;
+  }
+  
+  .translate-widget .goog-te-menu-value {
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .translate-widget .goog-te-menu-value span {
+    border: none !important;
+    color: inherit;
+  }

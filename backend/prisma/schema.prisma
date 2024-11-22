@@ -1,0 +1,110 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("MONGODB_URI")
+}
+
+model User {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId // @map("id") is used to map the id field to the id field in the mongodb database by default
+  email     String   @unique
+  username  String   @unique
+  password  String
+  avatar    String?
+  role      Role? 
+  posts     Post[]
+  savedPosts SavedPosts[]
+  chatIDs String[] @db.ObjectId
+  chats    Chat[]   @relation(fields: [chatIDs], references: [id])
+  createdAt DateTime @default(now())
+}
+
+enum Role {
+  CUSTOMER
+  SELLER
+}
+
+model Post {
+  id           String       @id @default(auto()) @map("_id") @db.ObjectId
+  user         User         @relation(fields: [userID], references: [id])
+  userID       String       @db.ObjectId
+  title        String       
+  price        Int
+  address      String
+  city         String
+  images       String[]
+  bedroom      Int
+  bathroom     Int
+  lat          String
+  lon          String
+  propertyType PropertyType
+  type         Type
+  PostDetails  PostDetails?  // in mongodb, it is not possible to enforce foreign key constraints at database level, so we can make the relation optional as prisma wants to enforce the foreign key constraints at the database level
+  savedPosts SavedPosts[]
+  savedByUserIDs String[]     @db.ObjectId  // to store the user IDs who saved the post
+  createdAt    DateTime     @default(now())
+}
+
+enum Type {
+  rent
+  buy
+}
+
+enum PropertyType {
+  house
+  apartment
+  condo
+  townhouse
+  land
+  commercial
+}
+
+model PostDetails {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  postID    String   @db.ObjectId @unique
+  post      Post     @relation(fields: [postID], references: [id])
+  description String
+  furnitures String
+  petPolicy String
+  rentPolicy String
+  size Int
+  schoolDist Int
+  busStopDist Int
+  restaurantDist Int
+  createdAt DateTime @default(now())
+}
+
+// creating a separate model to practice relations and also to store the date the user saved the post (thought it might be useful)
+model SavedPosts {
+  id     String @id @default(auto()) @map("_id") @db.ObjectId
+  user   User   @relation(fields: [userID], references: [id])
+  userID String @db.ObjectId
+  post   Post   @relation(fields: [postID], references: [id])
+  postID String @db.ObjectId
+  createdAt DateTime @default(now())
+
+
+  @@unique([userID, postID])
+}
+
+model Chat {
+  id       String   @id @default(auto()) @map("_id") @db.ObjectId
+  userIDs String[] @db.ObjectId
+  users    User[]  @relation(fields: [userIDs], references: [id])
+  messages Message[]
+  seenBy  String[] @db.ObjectId
+  recentMessage  String?
+  createdAt DateTime @default(now())
+}
+
+model Message {
+  id       String   @id @default(auto()) @map("_id") @db.ObjectId
+  userID   String   @db.ObjectId
+  chatID   String   @db.ObjectId
+  chat     Chat     @relation(fields: [chatID], references: [id])
+  text     String
+  createdAt DateTime @default(now())
+
+}
