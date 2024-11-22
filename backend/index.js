@@ -23,6 +23,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
+      "https://shoob-estate-ocou-p3a11anav-shuvadipta-das-projects.vercel.app",
     ],
     credentials: true, // hey express, allow cookies to be sent back and forth
     methods: ["GET", "POST", "PUT", "DELETE"],

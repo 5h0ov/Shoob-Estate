@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon socket.js"
+    "dev": "nodemon socket.js",
+    "start": "node socket.js",
+    "build": "npm install"
   },
   "keywords": [],
   "author": "",
