@@ -57,7 +57,11 @@ export const useStore = create((set, get) => ({
   fetchNotifications: async () => {
     set({ fetchingNotifications: true });
     try {
-      const res = await apiRequest.get(`${API_URL}/api/auth/notifications`);
+      const res = await apiRequest.get(`${API_URL}/api/auth/notifications`,{
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('jwt-shoobestate')}`,
+        }
+      });
       console.log("Notifications: ", res.data)
       set({ notifications: res.data.number, fetchingNotifications: false });
     } catch (error) {
