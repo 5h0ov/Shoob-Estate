@@ -22,7 +22,8 @@ const Profile = () => {
   const [refreshChats, setRefreshChats] = useState(false)
   const [refreshPosts, setRefreshPosts] = useState(false)
   const [showRoleDialog, setShowRoleDialog] = useState(false);
-  
+  const [showTimeout, setShowTimeout] = useState(false);
+
   // useEffect(() => {
   //   if (user) {
   //     initializeSocket();
@@ -103,7 +104,7 @@ const Profile = () => {
       </div>
     );
   }
-  
+
   return (
     <div className='flex h-full flex-col lg:flex-row'>
       <motion.div
