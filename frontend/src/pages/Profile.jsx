@@ -36,7 +36,7 @@ const Profile = () => {
         setFetchingChats(true)
         try{
           const res = await apiRequest.get(`${API_URL}/api/chat`)
-          console.log(res.data)
+          // console.log(res.data)
           setResData(res.data)
         } catch (error) {
           console.error(error)

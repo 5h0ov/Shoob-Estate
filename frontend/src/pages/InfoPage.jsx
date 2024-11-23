@@ -29,10 +29,10 @@ const API_URL = import.meta.env.VITE_API_URL;
 
 const InfoPage = () => {
   const windowUrl = window.location.search;
-  const searchParams = new URLSearchParams(windowUrl); 
+  // const searchParams = new URLSearchParams(windowUrl); 
   const {id} = useParams();
-  const preview = searchParams.get("preview"); 
-  console.log(preview);
+  // const preview = searchParams.get("preview"); 
+  // console.log(preview);
   const {user} = useStore();
   const navigate = useNavigate();
   const [postData, setPostData] = useState({})
@@ -57,7 +57,7 @@ const InfoPage = () => {
           }
         });
         
-        console.log(res.data);
+        // console.log(res.data);
 
         const { PostDetails, ...postWithoutDetails } = res.data.post; // destructuring the post details from the response
         setPostData(postWithoutDetails);
@@ -85,8 +85,8 @@ const InfoPage = () => {
   },[id])
 
   
-  console.log("postData: ",postData);
-  console.log("postDetails: ",postDetails);
+  // console.log("postData: ",postData);
+  // console.log("postDetails: ",postDetails);
   if (isLoading) {
     return <div className="flex justify-center items-center bg-white h-screen">
         <span className="loader" />
@@ -108,7 +108,7 @@ const InfoPage = () => {
           Authorization: `Bearer ${token}`,
         },
       });
-      console.log(res.data);
+      // console.log(res.data);
 
       if(res.data.deleted) {
         setIsSaved(false);

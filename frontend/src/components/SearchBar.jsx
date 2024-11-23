@@ -15,13 +15,13 @@ const SearchBar = () => {
 
   const switchType = (val) => {
     setQuery((prev) => ({ ...prev, type: val }));
-    console.log(query);
+    // console.log(query);
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setQuery((prev) => ({ ...prev, [name]: value }));
-    console.log(query);
+    // console.log(query);
   };
   
 

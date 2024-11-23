@@ -81,7 +81,7 @@ function CreatePost() {
           return;
         }
   
-        console.log('res.data: ', res.data);
+        // console.log('res.data: ', res.data);
   
         // Destructure the response
         const { PostDetails, ...postWithoutDetails } = res.data.post;
@@ -156,7 +156,7 @@ function CreatePost() {
         const res = await apiRequest.post(`${API_URL}/api/util/existing-images`, {
           imageURLs: JSON.parse(imageURLs),
         });
-        console.log(res.data);
+        // console.log(res.data);
         localStorage.removeItem("imageURLs");
         console.log("Existing images deleted.");
         return;

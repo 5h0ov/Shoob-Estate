@@ -24,7 +24,7 @@ const Agents = () => {
       try {
         const res = await apiRequest.get(`${API_URL}/api/auth/getAgents`);
         setAgents(res.data.agents);
-        console.log(res.data.agents);
+        // console.log(res.data.agents);
         setLoading(false);
       } catch (error) {
         console.error('Error fetching agents:', error);

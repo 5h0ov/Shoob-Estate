@@ -29,9 +29,9 @@ const Lists = () => {
       setIsFetching(true)
       try {
         const queryParams = getQueryParams();
-        console.log(queryParams);
+        // console.log(queryParams);
         const res = await apiRequest.get(`${API_URL}/api/posts`, { params: queryParams });
-        console.log(res.data)
+        // console.log(res.data)
         setPosts(res.data.posts)
         setIsFetching(false)
       } catch (error) {

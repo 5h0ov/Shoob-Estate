@@ -23,8 +23,8 @@ const Chat = ({resData, currUserId}) => {
   const chatEndRef = useRef(null)
   const textareaRef = useRef(null);
 
-  console.log(resData);
-  console.log(currUserId);
+  // console.log(resData);
+  // console.log(currUserId);
 
 
   useEffect(() => {
@@ -59,7 +59,7 @@ const Chat = ({resData, currUserId}) => {
 
     try {
       const res = await apiRequest.get(`${API_URL}/api/chat/${id}`)
-      console.log(res.data.chat)
+      // console.log(res.data.chat)
       setChatData(res.data.chat)
       if(!res.data.chat.seenBy.includes(currUserId)) {
         decreaseNotifications()
@@ -82,8 +82,8 @@ const Chat = ({resData, currUserId}) => {
     setIsSending(true)
     try {
       const res = await apiRequest.post(`${API_URL}/api/message/${chatData.id}`, {text})
-      console.log(res.data)
-      setChatData({...chatData, messages: [...chatData.messages, res.data.message]})
+      // console.log(res.data)
+      // setChatData({...chatData, messages: [...chatData.messages, res.data.message]})
 
       console.log("receiverID: ", chatData.receivers[0].id)
       socket.emit('sendMessage', {
