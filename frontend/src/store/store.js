@@ -20,11 +20,13 @@ export const useStore = create((set, get) => ({
   isConnectingSocket: false,
   notifications: 0,
   fetchingNotifications: false,
-
+  isSocketConnected: false,
+  
   initializeSocket: () => {
     const { user } = get();
     if (user && !get().socket) {
       const state = get();
+      if (state.socket?.connected) return;
 
       set({ isConnectingSocket: true });
       try {
@@ -36,20 +38,20 @@ export const useStore = create((set, get) => ({
   
         socket.on('connect', () => {
           console.log('Socket connected with ID:', socket.id);
-          set({ socket, isConnectingSocket: false });
+          set({ socket, isConnectingSocket: false, isSocketConnected: true });
           socket.emit("newUser", user.id);
         });
   
         socket.on('disconnect', () => {
           console.log(socket)
-          set({ socket, isConnectingSocket: false });
+          set({ socket, isConnectingSocket: false, isSocketConnected: false });
           console.log('Socket disconnected');
         });
 
         set({ socket, isConnectingSocket: false });
       } catch (error) {
         console.error('Socket initialization error:', error);
-        set({ socket, isConnectingSocket: false });
+        set({ socket, isConnectingSocket: false, isSocketConnected: false });
       }
     }
   },

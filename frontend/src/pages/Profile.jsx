@@ -15,7 +15,7 @@ const API_URL = import.meta.env.VITE_API_URL
 const Profile = () => {
   const [isMessagesVisible, setIsMessagesVisible] = useState(false)
   const { logout, isLoggingOut }  = useStore()
-  const { user, updateUser, initializeSocket, isConnectingSocket } = useStore()
+  const { user, updateUser, initializeSocket, isConnectingSocket, isSocketConnected } = useStore()
   const [openModal, setOpenModal] = useState(false)
   const [fetchingChats, setFetchingChats] = useState(true)
   const [resData , setResData] = useState([])
@@ -23,11 +23,11 @@ const Profile = () => {
   const [refreshPosts, setRefreshPosts] = useState(false)
   const [showRoleDialog, setShowRoleDialog] = useState(false);
   
-  useEffect(() => {
-    if (user) {
-      initializeSocket();
-    }
-  }, [user]);
+  // useEffect(() => {
+  //   if (user) {
+  //     initializeSocket();
+  //   }
+  // }, [user]);
 
 
   useEffect(() => {
@@ -65,18 +65,45 @@ const Profile = () => {
     }
   };
 
-  if(isConnectingSocket) {
-    return <div className="flex flex-col gap-2 justify-center items-center h-screen">
-      <span className="loader-eye" />
-      <span className='text-2xl font-semibold'>
-      Socket is Connecting...
-      </span>
-      <span className='text-2xl font-semibold'>
-      Please be patient it can take a while as its hosted in render.
-      </span>
-    </div>
-  }
+  // if (isConnectingSocket || !isSocketConnected) {
+  //   return (
+  //     <div className="flex flex-col gap-2 justify-center items-center h-screen">
+  //       <span className="loader-eye" />
+  //       <span className='text-2xl font-semibold'>
+  //         {isConnectingSocket ? 'Socket is Connecting...' : 'Waiting for Socket Connection...'}
+  //       </span>
+  //       <span className='text-2xl font-semibold'>
+  //         Please be patient, it can take a while as it's hosted on Render.
+  //       </span>
+  //     </div>
+  //   );
+  // }
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (isConnectingSocket || !isSocketConnected) {
+        setShowTimeout(true);
+      }
+    }, 10000); // Show timeout message after 10 seconds
 
+    return () => clearTimeout(timer);
+  }, [isConnectingSocket, isSocketConnected]);
+
+  if (isConnectingSocket || !isSocketConnected) {
+    return (
+      <div className="flex flex-col gap-2 justify-center items-center h-screen">
+        <span className="loader-eye" />
+        <span className='text-2xl font-semibold'>
+          {isConnectingSocket ? 'Socket is Connecting...' : 'Waiting for Socket Connection...'}
+        </span>
+        {showTimeout && (
+          <span className='text-xl text-yellow-600 font-semibold'>
+            Connection is taking longer than usual. This might be because the server needs to wake up from sleep mode.
+          </span>
+        )}
+      </div>
+    );
+  }
+  
   return (
     <div className='flex h-full flex-col lg:flex-row'>
       <motion.div

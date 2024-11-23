@@ -37,6 +37,11 @@ const App = () => {
   },[getAuth])  // runs when checkingAuth changes;
 
   
+  useEffect(() => {
+    if (user) {
+      initializeSocket();
+    }
+  }, [user, initializeSocket]);
 
 
 
