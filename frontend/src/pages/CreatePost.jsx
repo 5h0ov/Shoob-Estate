@@ -375,7 +375,7 @@ function CreatePost() {
               className="p-4 w-full border border-gray-300 rounded"
             />
             <Tooltip anchorSelect="#title" place="top" type="dark" className="z-10" delayShow={450}>
-              <img src="../src/assests/title.webp" className="px-1 py-2 h-96 w-96"/>
+              <img src="./assests/title.webp" className="px-1 py-2 h-72 w-72 md:h-96 md:w-96 "/>
             </Tooltip>
           </div>
 
@@ -391,7 +391,7 @@ function CreatePost() {
               className="p-4 w-full border border-gray-300 rounded"
             />
             <Tooltip anchorSelect="#price" place="top" type="dark" className="z-10" delayShow={450}> 
-              <img src="../src/assests/price.webp" className="px-1 py-2 h-96 w-96"/>
+              <img src="./assests/price.webp" className="px-1 py-2 h-72 w-72 md:h-96 md:w-96"/>
             </Tooltip>
           </div>
 
@@ -408,7 +408,7 @@ function CreatePost() {
               className="p-4 w-full border border-gray-300 rounded"
             />
             <Tooltip anchorSelect="#address" place="top" type="dark" className="z-10" delayShow={450}> 
-              <img src="../src/assests/address.webp" className="px-1 py-2 h-96 w-96"/>
+              <img src="./assests/address.webp" className="px-1 py-2 h-72 w-72 md:h-96 md:w-96"/>
             </Tooltip>
           </div>
 
@@ -423,7 +423,7 @@ function CreatePost() {
               id="desc"
             />
             <Tooltip anchorSelect="#desc" place="top" type="dark" className="z-10" delayShow={450}> 
-              <img src="../src/assests/description.webp" className="px-1 py-2 h-96 w-96"/>
+              <img src="./assests/description.webp" className="px-1 py-2 h-72 w-72 md:h-96 md:w-96"/>
             </Tooltip>
           </div>
 
@@ -455,7 +455,7 @@ function CreatePost() {
               className="p-4 w-full border border-gray-300 rounded"
             />
             <Tooltip anchorSelect="#bedroom" place="top" type="dark" className="z-10" delayShow={450}> 
-              <img src="../src/assests/bedroom.webp" className="px-1 py-2 h-96 w-96"/>
+              <img src="./assests/bedroom.webp" className="px-1 py-2 h-72 w-72 md:h-96 md:w-96"/>
             </Tooltip>
           </div>
 
@@ -471,7 +471,7 @@ function CreatePost() {
               className="p-4 w-full border border-gray-300 rounded"
             />
             <Tooltip anchorSelect="#bathroom" place="top" type="dark" className="z-10" delayShow={450}> 
-              <img src="../src/assests/bathroom.webp" className="px-1 py-2 h-96 w-96"/>
+              <img src="./assests/bathroom.webp" className="px-1 py-2 h-72 w-72 md:h-96 md:w-96"/>
             </Tooltip>
           </div>
 
@@ -533,7 +533,7 @@ function CreatePost() {
               <option value="land">Land</option>
             </select>
             <Tooltip anchorSelect="#propertyType" place="top" type="dark" className="z-10" delayShow={450}> 
-              <img src="../src/assests/propertyType.webp" className="px-1 py-2 h-96 w-96"/>
+              <img src="./assests/propertyType.webp" className="px-1 py-2 h-72 w-72 md:h-96 md:w-96"/>
             </Tooltip>
           </div>
 
@@ -548,7 +548,7 @@ function CreatePost() {
               <option value="shared">Shared</option>
             </select>
             <Tooltip anchorSelect="#furniture" place="top" type="dark" className="z-10" delayShow={450}> 
-              <img src="../src/assests/furniture.webp" className="px-1 py-2 h-96 w-96"/>
+              <img src="./assests/furniture.webp" className="px-1 py-2 h-72 w-72 md:h-96 md:w-96"/>
             </Tooltip>
           </div>
 
@@ -562,7 +562,7 @@ function CreatePost() {
               <option value="not-allowed">Not Allowed</option>
             </select>
             <Tooltip anchorSelect="#pet" place="top" type="dark" className="z-10" delayShow={450}> 
-              <img src="../src/assests/pet.webp" className="px-1 py-2 h-96 w-96"/>
+              <img src="./assests/pet.webp" className="px-1 py-2 h-72 w-72 md:h-96 md:w-96"/>
             </Tooltip>
           </div>
 
@@ -578,7 +578,7 @@ function CreatePost() {
               className="p-4 w-full border border-gray-300 rounded"
             />
             <Tooltip anchorSelect="#rentPolicy" place="top" type="dark" className="z-10" delayShow={450}> 
-              <img src="../src/assests/rent.webp" className="px-1 py-2 h-96 w-96"/>
+              <img src="./assests/rent.webp" className="px-1 py-2 h-72 w-72 md:h-96 md:w-96"/>
             </Tooltip>
           </div>
 
@@ -594,7 +594,7 @@ function CreatePost() {
               className="p-4 w-full border border-gray-300 rounded"
             />
             <Tooltip anchorSelect="#size" place="top" type="dark" className="z-10" delayShow={450}> 
-              <img src="../src/assests/area.webp" className="px-1 py-2 h-96 w-96"/>
+              <img src="./assests/area.webp" className="px-1 py-2 h-72 w-72 md:h-96 md:w-96"/>
             </Tooltip>
           </div>
 
@@ -610,7 +610,7 @@ function CreatePost() {
               className="p-4 w-full border border-gray-300 rounded"
             />
             <Tooltip anchorSelect="#school" place="top" type="dark" className="z-10" delayShow={450}> 
-              <img src="../src/assests/schoolDist.webp" className="px-1 py-2 h-96 w-96"/>
+              <img src="./assests/schoolDist.webp" className="px-1 py-2 h-72 w-72 md:h-96 md:w-96"/>
             </Tooltip>
           </div>
           <div>
@@ -625,7 +625,7 @@ function CreatePost() {
               className="p-4 w-full border border-gray-300 rounded"
             />
             <Tooltip anchorSelect="#bus" place="top" type="dark" className="z-10" delayShow={450}> 
-              <img src="../src/assests/busDist.webp" className="px-1 py-2 h-96 w-96"/>
+              <img src="./assests/busDist.webp" className="px-1 py-2 h-72 w-72 md:h-96 md:w-96"/>
             </Tooltip>
           </div>
           <div>
@@ -640,7 +640,7 @@ function CreatePost() {
               className="p-4 w-full border border-gray-300 rounded"
             />
             <Tooltip anchorSelect="#restaurant" place="top" type="dark" className="z-10" delayShow={450}> 
-              <img src="../src/assests/restaurantDist.webp" className="px-1 py-2 h-96 w-96"/>
+              <img src="./assests/restaurantDist.webp" className="px-1 py-2 h-72 w-72 md:h-96 md:w-96"/>
             </Tooltip>
           </div>
         </div>
