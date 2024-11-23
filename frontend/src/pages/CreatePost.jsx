@@ -8,6 +8,10 @@ import { toast } from "react-toastify";
 import { useStore } from "../store/store.js";
 import { MapContainer, TileLayer, Marker, useMapEvents, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
+import { Icon } from 'leaflet';
+import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png';
+import markerIcon from 'leaflet/dist/images/marker-icon.png';
+import markerShadow from 'leaflet/dist/images/marker-shadow.png';
 import axios from "axios";
 import { Tooltip } from "react-tooltip";
 
@@ -324,7 +328,7 @@ function CreatePost() {
     setSearchResults([]); // Clear results after selection
     toast.success('Location selected.');
   };
-
+  
   const LocationMarker = () => {
     useMapEvents({
       click(e) {
@@ -337,8 +341,19 @@ function CreatePost() {
       },
     });
 
+    const customIcon = new Icon({
+      iconUrl: markerIcon,
+      iconRetinaUrl: markerIcon2x,
+      shadowUrl: markerShadow,
+      iconSize: [25, 41],
+      iconAnchor: [12, 41],
+      popupAnchor: [1, -34],
+      shadowSize: [41, 41]
+    });
+  
+
     return markerPosition === null ? null : (
-      <Marker position={markerPosition}>
+      <Marker position={markerPosition} icon={customIcon}>
         <Popup>
           <div className="flex flex-col">
             <span className="font-semibold text-base">Latitude: {lat}</span>
