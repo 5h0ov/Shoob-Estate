@@ -74,7 +74,7 @@ function CloudinaryUploadWidget({ uwConfig, setImages, Tooltip }) {
         {widgetLoaded ? "Loading..." : "Upload Images Here"}
       </button>
       <Tooltip anchorSelect="#upload_widget" place="right" type="dark" className="z-10" delayShow={500}>
-          <img src="../src/assests/image.webp" />
+          <img src="./assests/image.webp" />
       </Tooltip>
 
     </CloudinaryScriptContext.Provider>
