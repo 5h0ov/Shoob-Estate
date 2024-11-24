@@ -170,6 +170,11 @@ const Chat = ({resData, currUserId}) => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.1, duration: 0.4 }}
       >
+        {resData?.chats?.length === 0 && (
+          <div className='flex flex-col items-center justify-center mt-10'>
+            <p className='text-gray-500 text-2xl font-semibold'>No messages yet.</p>
+            </div>
+        )}
 
         {(resData?.chats).map((chat) => (
           <motion.div className={`msg ${chat.seenBy.includes(currUserId) || chat.id == chatData.id ? 'bg-white' : 'bg-yellow-100/70'} p-4 rounded-md flex items-center gap-5 cursor-pointer transition-colors duration-500 ease-in-out shadow-md hover:bg-slate-100`} 
