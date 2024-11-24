@@ -16,11 +16,6 @@ A full-stack (MERN) real estate platform that enables users to list, browse, and
 - Price range selection
 - Location-based search
 - Bedroom/bathroom filters
-- 💬 Real-time Chat System
-- Instant messaging between users
-- Chat notifications
-- Message read receipts
-- Minimizable chat windows
 
 ### 👥 User Features
 
@@ -28,6 +23,11 @@ A full-stack (MERN) real estate platform that enables users to list, browse, and
 - Profile management
 - Property bookmarking
 - View saved properties
+- Instant messaging between users
+- Chat notifications
+- Message read receipts
+- Highly Interactive chat window for desktop
+- Real-time Chat System
 - Contact Mailing System using Nodemailer
 
 ## 🛠️ Tech Stack
@@ -128,7 +128,7 @@ A full-stack (MERN) real estate platform that enables users to list, browse, and
    npm run dev
    ```
 
-## 🌐 API Endpoints
+## 🌐 API Endpoints (SUBJECT TO CHANGE)
 ### Authentication Routes:
 - `POST /api/auth/signup`:          User registration
 - `POST /api/auth/login`:          User login
