@@ -10,18 +10,18 @@ function HomePage() {
   const statsData = [
     { 
       icon: FaRegBuilding , 
-      number: "16+", 
+      number: "20+", 
       text: "Years of Experience" 
     },
     { 
       icon: FaAward,
       number: "200", 
-      text: "Award Gained" 
+      text: "Awards Gained" 
     },
     { 
       icon: IoHomeOutline, 
       number: "2000+", 
-      text: "Property Ready" 
+      text: "Properties Ready" 
     }
   ];
 
@@ -84,7 +84,7 @@ function HomePage() {
       <AnimatePresence mode="wait">
         <motion.div
           key={currentStatIndex}
-          className="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-sm w-64"
+          className="flex flex-row gap-2 items-center text-center p-6 bg-white rounded-xl shadow-sm w-64"
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -50 }}
