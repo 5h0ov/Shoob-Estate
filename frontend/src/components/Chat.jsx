@@ -83,7 +83,7 @@ const Chat = ({resData, currUserId}) => {
     try {
       const res = await apiRequest.post(`${API_URL}/api/message/${chatData.id}`, {text})
       // console.log(res.data)
-      // setChatData({...chatData, messages: [...chatData.messages, res.data.message]})
+      setChatData({...chatData, messages: [...chatData.messages, res.data.message]})
 
       console.log("receiverID: ", chatData.receivers[0].id)
       socket.emit('sendMessage', {
