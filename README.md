@@ -49,6 +49,9 @@ A full-stack (MERN) real estate platform that enables users to list, browse, and
 - Cloudinary for Image Storage ☁️
 - Express Rate Limiting Feature🛡️
 
+## Workflow of the Project (in app.eraser.io)
+Shared Link: https://app.eraser.io/workspace/drOD8Oe42tPtw9sNdkm7?origin=share
+
 ## 🚀 Getting Started Locally
 
 ### Project Setup
