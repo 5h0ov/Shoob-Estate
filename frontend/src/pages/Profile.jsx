@@ -66,27 +66,14 @@ const Profile = () => {
     }
   };
 
-  // if (isConnectingSocket || !isSocketConnected) {
-  //   return (
-  //     <div className="flex flex-col gap-2 justify-center items-center h-screen">
-  //       <span className="loader-eye" />
-  //       <span className='text-2xl font-semibold'>
-  //         {isConnectingSocket ? 'Socket is Connecting...' : 'Waiting for Socket Connection...'}
-  //       </span>
-  //       <span className='text-2xl font-semibold'>
-  //         Please be patient, it can take a while as it's hosted on Render.
-  //       </span>
-  //     </div>
-  //   );
-  // }
+
   useEffect(() => {
     const timer = setTimeout(() => {
       if (isConnectingSocket || !isSocketConnected) {
         setShowTimeout(true);
         initializeSocket();
       }
-    }, 10000); // Show timeout message after 10 seconds
-
+    }, 10000); 
     return () => clearTimeout(timer);
   }, [isConnectingSocket, isSocketConnected]);
 

@@ -338,7 +338,7 @@ const Chat = ({resData, currUserId}) => {
           bounds="window"
           enableResizing={
             isMinimized
-              ? false // Completely disable resizing
+              ? false
               : {
                   bottomRight: true,
                   bottomLeft: true,
@@ -351,7 +351,7 @@ const Chat = ({resData, currUserId}) => {
                 }
           }
           dragHandleClassName="chat-header" // Draggable only via header
-          className="z-50 hidden md:block" // Ensure the component is above other elements
+          className="z-50 hidden md:block"
         >
           <motion.div
             className={`chat-menu fixed w-full h-full bg-white rounded-t-lg shadow-lg flex flex-col  ${
