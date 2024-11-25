@@ -52,58 +52,58 @@ function HomePage() {
           <SearchBar />
 
           {/* for large screens */}
-      <motion.div 
-        className="stats lg:flex justify-between hidden gap-8"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.6, duration: 0.8 }}
-      >
-      {statsData.map((stat, index) => (
-        <motion.div
-          key={index}
-          className="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          <stat.icon className="w-8 h-8 mb-3 text-yellow-600" />
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-yellow-600 to-red-600 bg-clip-text text-transparent">
-            {stat.number}
-          </h1>
-          <h2 className="text-gray-600 font-medium mt-2">{stat.text}</h2>
+          <motion.div 
+            className="stats lg:flex justify-between hidden gap-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+          >
+          {statsData.map((stat, index) => (
+            <motion.div
+              key={index}
+              className="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <stat.icon className="w-8 h-8 mb-3 text-yellow-600" />
+              <h1 className="text-4xl font-bold bg-gradient-to-r from-yellow-600 to-red-600 bg-clip-text text-transparent">
+                {stat.number}
+              </h1>
+              <h2 className="text-gray-600 font-medium mt-2">{stat.text}</h2>
+            </motion.div>
+          ))}
         </motion.div>
-      ))}
-    </motion.div>
 
-    {/* for small screens */}
-    <motion.div 
-      className="stats flex lg:hidden justify-center"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.6, duration: 0.8 }}
-    >
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={currentStatIndex}
-          className="flex flex-row gap-2 items-center text-center p-6 bg-white rounded-xl shadow-sm w-64"
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -50 }}
-          transition={{ duration: 0.2 }}
+        {/* for small screens */}
+        <motion.div 
+          className="stats flex items-center lg:hidden justify-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 0.8 }}
         >
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentStatIndex}
+              className="flex flex-row gap-2 items-center text-center justify-center p-4 bg-white rounded-xl shadow-sm w-64"
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -50 }}
+              transition={{ duration: 0.2 }}
+            >
 
-        {(() => {
-          const IconComponent = statsData[currentStatIndex].icon;
-          return <IconComponent className="w-8 h-8 mb-3 text-yellow-600" />;
-        })()}
+            {(() => {
+              const IconComponent = statsData[currentStatIndex].icon;
+              return <IconComponent className="w-8 h-8 mb-3 text-yellow-600" />;
+            })()}
 
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-yellow-600 to-red-600 bg-clip-text text-transparent">
-            {statsData[currentStatIndex].number}
-          </h1>
-          <h2 className="text-gray-600 font-medium mt-2">{statsData[currentStatIndex].text}</h2>
+              <h1 className="text-4xl font-bold bg-gradient-to-r from-yellow-600 to-red-600 bg-clip-text text-transparent">
+                {statsData[currentStatIndex].number}
+              </h1>
+              <h2 className="text-gray-600 font-medium mt-2">{statsData[currentStatIndex].text}</h2>
+            </motion.div>
+          </AnimatePresence>
         </motion.div>
-      </AnimatePresence>
-    </motion.div>
-          
+              
         </div>
       </div>
 

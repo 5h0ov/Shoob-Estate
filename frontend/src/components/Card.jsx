@@ -104,7 +104,7 @@ const Card = ({item, profileList, setRefresh }) => {
   }
 
   return ( <>
-    <div className="flex flex-col p-4 sm:flex-row gap-5 shadow-lg hover:scale-105 transition-all duration-100 ease-out relative">
+    <div className="flex flex-col p-4 sm:flex-row gap-5 shadow-lg hover:scale-105 transition-all duration-100 ease-out relative z-0">
     {user && user.id === item.userID && (
         <div className="absolute top-2 right-2 z-10 bg-yellow-400 text-black px-2 py-1 rounded-md text-sm font-semibold shadow-md">
           Listed by you
