@@ -60,7 +60,7 @@ function Navbar() {
           <TiThMenu className={`size-10 cursor-pointer transition-all duration-150 ease-in-out ${open ? "invert" : "text-black"}`} onClick={() => setOpen((prev) => !prev)}
           />
         </div>
-        <div className={`menu ${open ? "translate-x-0" : "translate-x-full"} fixed top-0 right-0 bg-black/80 backdrop-blur-md text-white h-screen w-1/2 transition-all duration-500 ease-in-out flex flex-col lg:hidden items-center justify-center text-2xl gap-14 font-semibold `} 
+        <div className={`menu ${open ? "translate-x-0" : "translate-x-full"} fixed top-0 right-0 bg-black/80 backdrop-blur-md text-white h-screen w-1/2 transition-all duration-500 ease-in-out flex flex-col lg:hidden items-center justify-center text-2xl gap-14 font-semibold z-20`} 
           onClick={(event) => {
             if (event.target.classList.contains('nav-link') || event.target.closest('.profile')) {
               setOpen(false);

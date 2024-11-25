@@ -175,7 +175,6 @@ export const useStore = create((set, get) => ({
   },
   getAuth: async () => {
     set({ checkingAuth: true });
-    const toastId = toast.loading("Authenticating...", { autoClose: false });
     try {
       const token = localStorage.getItem('jwt-shoobestate');
       
@@ -185,6 +184,7 @@ export const useStore = create((set, get) => ({
         }
       });
 
+      const toastId = toast.loading("Authenticating...", { autoClose: false });
       toast.dismiss(toastId); 
       toast.success(res.data.msg);
 
@@ -193,8 +193,6 @@ export const useStore = create((set, get) => ({
       set({ user: res.data.user, checkingAuth: false });
     } catch (error) {
       console.log(error)
-      toast.dismiss(toastId); 
-      toast.error(error.response.data.message || "Error in authenticating");
       set({ user: null, checkingAuth: false });
     }
   },
