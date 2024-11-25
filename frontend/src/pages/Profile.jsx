@@ -83,6 +83,7 @@ const Profile = () => {
     const timer = setTimeout(() => {
       if (isConnectingSocket || !isSocketConnected) {
         setShowTimeout(true);
+        initializeSocket();
       }
     }, 10000); // Show timeout message after 10 seconds
 
