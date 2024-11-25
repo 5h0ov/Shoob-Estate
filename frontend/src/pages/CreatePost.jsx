@@ -713,7 +713,7 @@ function CreatePost() {
         </div>
       </div>
 
-      {!postData ? (
+      {Object.keys(postData).length === 0 ? (
         <button
           type="submit"
           className="w-full md:w-1/2 lg:w-1/3 p-4 mt-6 text-lg text-white font-semibold bg-teal-600 rounded hover:bg-teal-700 "
