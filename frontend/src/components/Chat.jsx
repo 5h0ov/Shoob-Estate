@@ -250,12 +250,14 @@ const Chat = ({resData, currUserId}) => {
               </div>
               <div className="flex items-center space-x-2">
                 <button
+                  aria-label='Minimize Chat'
                   onClick={() => setIsMinimized(!isMinimized)}
                   className="text-gray-600 hover:text-gray-800"
                 >
                   <FiMinus />
                 </button>
                 <button
+                  aria-label='Close Chat'
                   onClick={() => setShowChat(false)}
                   className="text-gray-600 hover:text-gray-800"
                 >
@@ -321,6 +323,7 @@ const Chat = ({resData, currUserId}) => {
                     }}
                   />
                   <button
+                    aria-label='Send Message'
                     type="submit"
                     disabled={isSending || isConnectingSocket}
                     className="bg-yellow-400 hover:bg-yellow-500 text-white px-3 py-2 rounded-md disabled:opacity-50"
@@ -386,6 +389,7 @@ const Chat = ({resData, currUserId}) => {
               </div>
               <div className="flex items-center space-x-2">
                 <button
+                  aria-label='Minimize Chat'
                   onClick={(e) => {
                     e.preventDefault();
                     setIsMinimized(!isMinimized)}}
@@ -394,6 +398,7 @@ const Chat = ({resData, currUserId}) => {
                   <FiMinus className='size-6'/>
                 </button>
                 <button
+                  aria-label='Close Chat'
                   onClick={(e) => {
                     e.preventDefault();
                     setShowChat(false)}}
@@ -462,6 +467,7 @@ const Chat = ({resData, currUserId}) => {
                     }}
                   />
                   <button
+                    aria-label='Send Message'
                     type="submit"
                     disabled={isSending || isConnectingSocket}
                     className="bg-yellow-400 hover:bg-yellow-500 text-black px-3 py-2 rounded-md disabled:opacity-50 font-semibold"

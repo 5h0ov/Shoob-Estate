@@ -65,6 +65,7 @@ function CloudinaryUploadWidget({ uwConfig, setImages, Tooltip }) {
   return (
     <CloudinaryScriptContext.Provider value={{ loaded }}>
       <button
+        aria-label="Upload Images"
         id="upload_widget"
         className={`px-6 py-3 font-semibold text-white rounded-lg shadow-md 
           ${widgetLoaded ? "bg-gray-400 cursor-not-allowed" : "bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-indigo-600 hover:to-blue-500"}

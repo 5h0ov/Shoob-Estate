@@ -200,6 +200,7 @@ const InfoPage = () => {
     </motion.div>
 
     <button
+        aria-label='Show/Hide Details'
         className="lg:hidden block bg-yellow-800 text-white py-2 px-4 rounded-md"
         onClick={() => setIsFeaturesVisible(!isFeaturesVisible)}
       >

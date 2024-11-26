@@ -112,6 +112,7 @@ const MessageDialog = ({ receiver, receiverId, isOpen, onClose }) => {
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-xl font-bold">Send Message to {receiver.username}</h2>
           <button 
+            aria-label='Close Dialog'
             onClick={closeAndDisconnect}
             className="text-gray-500 hover:text-gray-700"
           >
@@ -127,10 +128,11 @@ const MessageDialog = ({ receiver, receiverId, isOpen, onClose }) => {
           />
           <div className="flex justify-end">
             <button
+              aria-label='Send Message'
               type="submit"
               disabled={isSending && isConnectingSocket}
               className={`px-4 py-2 bg-yellow-400 rounded-md hover:bg-yellow-500 
-                ${isSending ? 'opacity-50 cursor-not-allowed' : ''}`}
+                ${isSending || isConnectingSocket ? 'opacity-50 cursor-not-allowed' : ''}`}
             >
               {isSending ? 'Sending...' : 'Send Message'}
             </button>

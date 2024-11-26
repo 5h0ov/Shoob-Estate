@@ -23,7 +23,7 @@ const Profile = () => {
   const [refreshPosts, setRefreshPosts] = useState(false)
   const [showRoleDialog, setShowRoleDialog] = useState(false);
   const [showTimeout, setShowTimeout] = useState(false);
-
+  const [changingRole , setChangingRole] = useState(false)
   // useEffect(() => {
   //   if (user) {
   //     initializeSocket();
@@ -58,10 +58,13 @@ const Profile = () => {
   }
 
   const handleRoleChange = async (newRole) => {
+    setChangingRole(true);
     try {
       await updateUser({ role: newRole });
       setShowRoleDialog(false); 
+      setChangingRole(false);
     } catch (error) {
+      setChangingRole(false);
       console.error(error);
     }
   };
@@ -73,7 +76,7 @@ const Profile = () => {
         setShowTimeout(true);
         initializeSocket();
       }
-    }, 10000); 
+    }, 5000);  // 5 seconds timer to refresh the socket connection
     return () => clearTimeout(timer);
   }, [isConnectingSocket, isSocketConnected]);
 
@@ -111,6 +114,7 @@ const Profile = () => {
           >
             <h1 className='text-3xl font-bold'>User Info</h1>
             <button
+              aria-label='Update Profile'
               className='py-2 px-4 bg-yellow-400 rounded-md text-lg font-bold cursor-pointer hover:bg-yellow-500 active:bg-yellow-600'
               onClick={handleModal}
             >
@@ -143,6 +147,7 @@ const Profile = () => {
               Role: <b>{user.role || 'Not Selected'}</b>
             </span>
             <button
+              aria-label='Log Out'
               disabled={isLoggingOut}
               onClick={handleLogOut}
               className={`w-fit py-3 px-3 font-bold ml-1 mt-2 text-white rounded-md bg-teal-700 hover:scale-105 transition-all duration-100 ${
@@ -164,13 +169,16 @@ const Profile = () => {
               <Link
                 to='/create-post'
                 className='py-2 px-4 bg-yellow-400 rounded-md text-lg font-bold cursor-pointer hover:bg-yellow-500 active:bg-yellow-600'
+                disabled={changingRole}
               >
                 Create New Listing
               </Link>
             ) : (
               <button
                 onClick={() => setShowRoleDialog(true)}
+                aria-label='Change Role to Seller'
                 className='py-2 px-4 bg-yellow-400 rounded-md text-lg font-bold cursor-pointer hover:bg-yellow-500 active:bg-yellow-600'
+                disabled={changingRole}
               >
                 Want to Create Your Own Listing?
               </button>
@@ -204,12 +212,14 @@ const Profile = () => {
                 </p>
                 <div className='flex justify-end gap-2'>
                   <button
+                    aria-label='Cancel'
                     onClick={() => setShowRoleDialog(false)}
                     className='px-4 py-2 bg-gray-200 rounded-md'
                   >
                     Cancel
                   </button>
                   <button
+                    aria-label='Change Role to Seller'
                     onClick={() => handleRoleChange('SELLER')}
                     className='px-4 py-2 bg-yellow-400 rounded-md'
                   >
@@ -232,6 +242,7 @@ const Profile = () => {
         </div>
       </motion.div>
       <button
+        aria-label='Show Messages'
         className="lg:hidden block bg-yellow-800 text-white py-2 px-4 rounded-md"
         onClick={() => setIsMessagesVisible(!isMessagesVisible)}
       >

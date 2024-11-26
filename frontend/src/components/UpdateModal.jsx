@@ -159,6 +159,7 @@ const UpdateModal = ({ onClose, user }) => {
           
           <div className="flex justify-end space-x-2">
             <button
+              aria-label="Close Modal"
               type="button"
               className="py-2 px-4 bg-gray-500 text-white rounded hover:bg-gray-600"
               onClick={onClose}
@@ -166,6 +167,7 @@ const UpdateModal = ({ onClose, user }) => {
               Cancel
             </button>
             <button
+              aria-label="Save Changes"
               type="submit"
               disabled={isEdittingUser || isUploading || isUpdatingAvatar}
               className="py-2 px-4 bg-yellow-500 text-black font-semibold rounded hover:bg-yellow-600"

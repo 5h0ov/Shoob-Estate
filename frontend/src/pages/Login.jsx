@@ -71,6 +71,8 @@ const Login = () => {  const windowUrl = window.location.search;  // gets the qu
             </Tooltip>
           </div>
           <button
+            type="submit"
+            aria-label='Login'
             disabled={isLoggingIn}
             className={`p-5 rounded-md border-none text-white font-bold cursor-pointer ${isLoggingIn ? 'bg-gray-300 cursor-no-drop' : 'bg-teal-500 hover:bg-teal-600 active:bg-teal-700 transition-all duration-100'}`}
           >

@@ -673,6 +673,7 @@ function CreatePost() {
             onChange={(e) => setSearchAddress(e.target.value)}
           />
           <button
+            aria-label="Get Latitude and Longitude"
             type="button"
             className="mt-2 p-2 bg-yellow-500 text-black font-bold hover:bg-yellow-600 transition-all rounded"
             onClick={handleAddressSearch}
@@ -715,6 +716,7 @@ function CreatePost() {
 
       {Object.keys(postData).length === 0 ? (
         <button
+          aria-label="Create Listing"
           type="submit"
           className="w-full md:w-1/2 lg:w-1/3 p-4 mt-6 text-lg text-white font-semibold bg-teal-600 rounded hover:bg-teal-700 "
           disabled={isLoading && isCreating}
@@ -723,6 +725,7 @@ function CreatePost() {
         </button>
       ) : (
         <button
+          aria-label="Edit Listing"
           type="submit"
           className="w-full md:w-1/2 lg:w-1/3 p-4 mt-6 text-lg text-white font-semibold bg-teal-600 rounded hover:bg-teal-700"
           disabled={isLoading && isUpdating}
@@ -735,6 +738,7 @@ function CreatePost() {
     </div>
 ``
       <button
+        aria-label="Toggle Image Preview"
         className="lg:hidden block bg-yellow-800 text-white py-2 px-4 rounded-md"
         onClick={() => setIsImagePreviewVisible(!isImagePreviewVisible)}
       > 
