@@ -59,7 +59,6 @@ const SignUp = () => {
             <input  
               name="password"
               type={showPassword ? "text" : "password"}
-              disabled={password.length === 0}
               required
               minLength={6}
               value={password}
@@ -70,6 +69,7 @@ const SignUp = () => {
             <button 
               type="button"
               id='password-toggle'
+              disabled={password.length === 0}
               aria-label='Toggle Password Visibility'
               className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700"
               onMouseDown={() => setShowPassword(true)}
