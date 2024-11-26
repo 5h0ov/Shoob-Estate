@@ -36,7 +36,7 @@ export async function updateAvatar(req, res) {
     // // console.log("user: ", user);
     // upload the new avatar
     cloudinary.v2.uploader.upload(
-      dataURI,
+      dataURI, // file.path,
       {
         folder: "avatar",
         width: 150,

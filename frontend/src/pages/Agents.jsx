@@ -50,7 +50,7 @@ const Agents = () => {
         className="text-center mb-6"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 0.3 }}
       >
         <h1 className="text-5xl font-bold mb-2">Our Agents</h1>
         <p className="text-lg max-w-2xl">
