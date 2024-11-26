@@ -45,7 +45,7 @@ export async function updateAvatar(req, res) {
       },
       async (error, result) => {
         if (error) throw error;
-        fs.unlinkSync(file.path);
+        // fs.unlinkSync(file.path);
         await prisma.user.update({
           where: {
             id: req.user.id,
