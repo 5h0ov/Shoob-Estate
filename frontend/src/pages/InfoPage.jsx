@@ -177,7 +177,7 @@ const InfoPage = () => {
                   whileHover={{ scale: 1.05 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
-                  <img src={postData.user.avatar} alt="user image" className='object-cover w-12 h-12 rounded-full' />
+                  <img src={postData.user.avatar || "./blank_avatar.png"} alt="user image" className='object-cover w-12 h-12 rounded-full' />
                 <span className='font-bold'>{postData.user.username}</span>
               </motion.div>
           </div>

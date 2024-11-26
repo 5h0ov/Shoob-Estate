@@ -83,7 +83,7 @@ const Agents = () => {
           >
             <div className="relative">
               <img
-                src={agent.avatar}
+                src={agent.avatar || "./blank_avatar.png"}
                 alt={agent.username}
                 className="w-full h-40 object-cover"
               />
