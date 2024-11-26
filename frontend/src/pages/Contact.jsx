@@ -39,7 +39,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row items-center justify-center h-full bg-[#fcf5f3] text-gray-800 p-6">
+    <div className="flex flex-col md:flex-row items-center justify-center h-full bg-[#fcf5f3] text-gray-800 p-6 overflow-y-auto">
 
       <motion.div
         className="md:w-1/2 flex flex-col items-start md:items-start mb-8 md:mb-0"

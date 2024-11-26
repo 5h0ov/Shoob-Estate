@@ -6,7 +6,7 @@ import { IoHomeOutline } from 'react-icons/io5';
 
 const About = () => {
   return (
-    <div className="flex flex-col items-center justify-center h-full bg-[#fcf5f3] text-gray-800">
+    <div className="flex flex-col items-center justify-center h-full bg-[#fcf5f3] text-gray-800 overflow-y-auto">
       <motion.h1
         className="text-5xl font-bold mb-6"
         initial={{ opacity: 0, y: -50 }}
