@@ -16,6 +16,8 @@ const app = express();
 // dotenv.config();
 const PORT = ENV_VARS.PORT;
 
+app.set('trust proxy', 1);
+
 app.use(express.json()); // hey express, parse incoming requests with JSON payloads
 app.use(cookieParser()); // hey express, parse cookies
 app.use(express.urlencoded({ extended: true }));
