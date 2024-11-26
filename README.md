@@ -52,6 +52,12 @@ A full-stack (MERN) real estate platform that enables users to list, browse, and
 ## Workflow of the Project (in app.eraser.io)
 Shared Link: https://app.eraser.io/workspace/drOD8Oe42tPtw9sNdkm7?origin=share
 
+## Brief Intro
+
+https://github.com/user-attachments/assets/701d6d31-fa84-438e-840f-90a990b026eb
+
+
+
 ## 🚀 Getting Started Locally
 
 ### Project Setup
