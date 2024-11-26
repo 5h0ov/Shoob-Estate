@@ -28,11 +28,15 @@ export async function updateAvatar(req, res) {
       await cloudinary.v2.uploader.destroy(`avatar/${publicId}`);
     }
 
+    const b64 = Buffer.from(file.buffer).toString("base64");
+    const dataURI = "data:" + file.mimetype + ";base64," + b64;
+    
+
     // // console.log("user.avatar: ", user.avatar);
     // // console.log("user: ", user);
     // upload the new avatar
     cloudinary.v2.uploader.upload(
-      file.path,
+      dataURI,
       {
         folder: "avatar",
         width: 150,
