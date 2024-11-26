@@ -223,7 +223,7 @@ const Card = ({item, profileList, setRefresh }) => {
             />
             <Tooltip
               anchorSelect={`#delete-${item.id}-${profileList}`}
-              place="top"
+              place="left"
               className="bg-black text-white rounded-md"
             >
               Delete
