@@ -177,6 +177,11 @@ export const useStore = create((set, get) => ({
     set({ checkingAuth: true });
     try {
       const token = localStorage.getItem('jwt-shoobestate');
+      if(!token)
+      {
+        set({ user: null, checkingAuth: false });
+        return;
+      }
       
       const res = await apiRequest.get(`${API_URL}/api/auth/getAuth`, {
         headers: {
