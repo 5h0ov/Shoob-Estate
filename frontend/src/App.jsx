@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from 'react';
+import React, { Suspense, lazy, Component } from 'react';
 import { useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify';
@@ -27,6 +27,40 @@ const About = lazy(() => import('./pages/About.jsx'));
 const Contact = lazy(() => import('./pages/Contact.jsx'));
 const Agents = lazy(() => import('./pages/Agents.jsx'));
 
+class ErrorBoundary extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(error) {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error, errorInfo) {
+    // Check for module loading error
+    if (
+      error.message.includes('Failed to fetch dynamically imported module') ||
+      error.message.includes('Failed to load module script')
+    ) {
+      console.log('Module loading error detected, refreshing page...');
+      setTimeout(() => {
+        window.location.reload();
+      }, 300); // 1.5 second delay before refresh
+    }
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div className="flex justify-center items-center bg-white h-screen">
+          <span className='loader' />
+        </div>
+     )
+    }
+    return this.props.children;
+  }
+}
 
 const App = () => {
   const {user, checkingAuth, getAuth, initializeSocket, isConnectingSocket} = useStore();  // checkingAuth acts as a loading state to make an illusion of a loading effect when the user is being checked
@@ -55,6 +89,7 @@ const App = () => {
   
   return (
     <>
+      <ErrorBoundary>
       <ToastContainer 
         position="top-right"
         autoClose={1000}
@@ -86,6 +121,7 @@ const App = () => {
           </Route>
         </Routes>
       </Suspense>
+      </ErrorBoundary>
     </>
   );
 };
