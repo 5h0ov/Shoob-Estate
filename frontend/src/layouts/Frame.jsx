@@ -7,7 +7,7 @@ function Frame() {
   return (
     <div className="h-screen max-w-screen-xl mx-auto flex flex-col xl:max-w-screen-xl lg:max-w-screen-lg md:max-w-screen-md sm:max-w-screen-sm">
         <Navbar />
-      <div className="content flex-1 overflow-hidden"> {/* flex-1 is used to make the content div take up the remaining space */} 
+      <div className="content flex-1 overflow-y-auto md:overflow-hidden"> {/* flex-1 is used to make the content div take up the remaining space */} 
         <Outlet /> {/* Outlet will be used to render the child components of this current route */}
       </div>
     </div>
@@ -23,7 +23,7 @@ function AuthPage() {
     return (
       <div className="h-screen max-w-screen-xl mx-auto flex flex-col xl:max-w-screen-xl lg:max-w-screen-lg md:max-w-screen-md sm:max-w-screen-sm">
         <Navbar />
-        <div className="content flex-1 overflow-hidden"> {/* flex-1 is used to make the content div take up the remaining space */} 
+        <div className="content flex-1 overflow-y-auto md:overflow-hidden"> {/* flex-1 is used to make the content div take up the remaining space */} 
           <Outlet /> {/* Outlet will be used to render the child components of this current route */}
         </div>
     </div>
