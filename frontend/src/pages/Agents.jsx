@@ -16,7 +16,7 @@ const Agents = () => {
   const [agents, setAgents] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isMessageDialogOpen, setIsMessageDialogOpen] = useState(false);
-  
+  const [selectedAgent, setSelectedAgent] = useState(null);
 
   useEffect(() => {
     const fetchAgents = async () => {
@@ -141,6 +141,7 @@ const Agents = () => {
                     toast.error("You can't send messages to yourself!");
                     return;
                   }
+                  setSelectedAgent(agent);
                   setIsMessageDialogOpen(true);
                 }}
               >
@@ -151,12 +152,17 @@ const Agents = () => {
 
           </motion.div>
 
-          <MessageDialog 
-            receiver={agent}
-            receiverId={agent.id}
-            isOpen={isMessageDialogOpen}
-            onClose={() => setIsMessageDialogOpen(false)}
-          />
+          {selectedAgent && (
+            <MessageDialog 
+              receiver={selectedAgent}
+              receiverId={selectedAgent.id}
+              isOpen={isMessageDialogOpen}
+              onClose={() => {
+                setIsMessageDialogOpen(false)
+                setSelectedAgent(null)
+              }}
+            />
+          )}
         </React.Fragment>
         ))}
       </motion.div>
