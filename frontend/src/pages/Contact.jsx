@@ -11,6 +11,7 @@ const Contact = () => {
     email: '',
     message: '',
   });
+  const [isSending, setIsSending] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -20,6 +21,7 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const toastId = toast.loading("Sending message...");
+    setIsSending(true);
     
     try {
       const res = await apiRequest.post(`${API_URL}/api/contact`, formData);
@@ -29,11 +31,14 @@ const Contact = () => {
       if (res.data.success) {
         toast.success("Message sent successfully!");
         setFormData({ name: '', email: '', message: '' });
+        setIsSending(false)
       } else {
         toast.error(res.data.message);
+        setIsSending(false)
       }
     } catch (error) {
       toast.dismiss(toastId);
+      setIsSending(false)
       toast.error(error.response?.data?.message || "Failed to send message");
     }
   };
@@ -109,7 +114,7 @@ const Contact = () => {
             Message
           </label>
           <textarea
-            className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:border-yellow-500 resize-none"
+            className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:border-yellow-500 resize-none disabled:text-gray-500"
             name="message"
             id="message"
             placeholder="Your Message"
@@ -117,11 +122,13 @@ const Contact = () => {
             onChange={handleChange}
             rows="5"
             required
-          ></textarea>
+            disabled={isSending}
+          />
         </div>
         <motion.button
-          className="w-full bg-yellow-400 text-black font-bold py-3 px-4 rounded hover:bg-yellow-500 focus:outline-none focus:shadow-outline"
+          className="w-full bg-yellow-400 text-black font-bold py-3 px-4 rounded hover:bg-yellow-500 focus:outline-none focus:shadow-outline disabled:cursor-not-allowed disabled:opacity-50"
           type="submit"
+          disabled={isSending}
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
         >

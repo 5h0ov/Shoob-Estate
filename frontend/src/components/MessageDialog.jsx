@@ -123,7 +123,7 @@ const MessageDialog = ({ receiver, receiverId, isOpen, onClose }) => {
           <textarea
             ref={textareaRef}
             className="w-full h-32 p-2 border border-gray-300 rounded resize-none"
-            placeholder="Type your message here..."
+            placeholder="Type your message..."
             disabled={isSending && isConnectingSocket}
           />
           <div className="flex justify-end">

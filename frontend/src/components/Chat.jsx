@@ -452,7 +452,7 @@ const Chat = ({resData, currUserId}) => {
                 >
                   <textarea
                     ref={textareaRef}
-                    className="flex-1 p-2 border rounded-md resize-none focus:outline-black"
+                    className="flex-1 p-2 border rounded-md resize-none focus:outline-black disabled:text-gray-500"
                     placeholder="Type your message..."
                     rows={1}
                     disabled={isSending || isConnectingSocket}
