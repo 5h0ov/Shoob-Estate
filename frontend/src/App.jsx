@@ -78,6 +78,33 @@ const App = () => {
   }, [user, initializeSocket]);
 
 
+  useEffect(() => {
+    const deleteExistingImages = async () => {
+      try {
+        const imageURLs = localStorage.getItem("imageURLs");
+        if (imageURLs.length > 0) {
+          console.log("Existing images found. Deleting...");
+        } else {
+          console.log("No existing images found.");
+          return;
+        }
+
+        const res = await apiRequest.post(`${import.meta.env.VITE_API_URL}/api/util/existing-images`, {
+          imageURLs: JSON.parse(imageURLs),
+        });
+        
+        // console.log(res.data);
+        localStorage.removeItem("imageURLs");
+        console.log("Existing images deleted.");
+        return;
+        
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    deleteExistingImages();
+  }, []);
 
   if(checkingAuth) {
     return (
