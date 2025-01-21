@@ -82,7 +82,7 @@ const App = () => {
     const deleteExistingImages = async () => {
       try {
         const imageURLs = localStorage.getItem("imageURLs");
-        if (imageURLs.length > 0) {
+        if (imageURLs && imageURLs.length > 0) {
           console.log("Existing images found. Deleting...");
         } else {
           console.log("No existing images found.");
@@ -92,7 +92,7 @@ const App = () => {
         const res = await apiRequest.post(`${import.meta.env.VITE_API_URL}/api/util/existing-images`, {
           imageURLs: JSON.parse(imageURLs),
         });
-        
+
         // console.log(res.data);
         localStorage.removeItem("imageURLs");
         console.log("Existing images deleted.");
