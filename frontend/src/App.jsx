@@ -93,13 +93,14 @@ const App = () => {
           imageURLs: JSON.parse(imageURLs),
         });
 
-        // console.log(res.data);
-        localStorage.removeItem("imageURLs");
+        // console.log(res.data)
         console.log("Existing images deleted.");
         return;
         
       } catch (error) {
         console.log(error);
+      } finally {
+        localStorage.removeItem("imageURLs");
       }
     };
 
