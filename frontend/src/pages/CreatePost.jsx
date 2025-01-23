@@ -759,6 +759,7 @@ function CreatePost() {
               resourceType: "image",
               allowedFormats: ["png", "jpg", "jpeg", "bmp", "tiff", "heif", "heic"],
               folder: "posts",
+              maxFileSize: 2097152 // 2MB
               // apiKey: `${import.meta.env.VITE_CLOUDINARY_API_KEY}`,
               // uploadSignature: cloudinarySignature,
             }}

@@ -81,7 +81,7 @@ const App = () => {
   useEffect(() => {
     const deleteExistingImages = async () => {
       try {
-        const imageURLs = localStorage.getItem("imageURLs");
+        const imageURLs = JSON.parse(localStorage.getItem("imageURLs"));
         if (imageURLs && imageURLs.length > 0) {
           console.log("Existing images found. Deleting...");
         } else {
@@ -90,7 +90,7 @@ const App = () => {
         }
 
         const res = await apiRequest.post(`${import.meta.env.VITE_API_URL}/api/util/existing-images`, {
-          imageURLs: JSON.parse(imageURLs),
+          imageURLs: imageURLs,
         });
 
         // console.log(res.data)
