@@ -94,7 +94,7 @@ const Agents = () => {
             </div>
 
             <div className="p-6">
-              <h2 className="text-2xl font-bold mb-2">{agent.username}{agent.id === user.id && <>&nbsp;(You)</>}</h2>
+              <h2 className="text-2xl font-bold mb-2">{agent.username}{agent.id === user?.id && <>&nbsp;(You)</>}</h2>
               <p className="text-yellow-800 font-semibold mb-4">{agent.role}</p>
               
               <div className="flex flex-col gap-3 mb-6">
